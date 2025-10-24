@@ -57,7 +57,6 @@ export default function Products() {
     return (
         <>
 
-
             <div className='container-fluid p-5'>
                 <h1>Products Inventory</h1>
                 <div className='add_button'>
@@ -80,18 +79,16 @@ export default function Products() {
                             {
                                 productData.map((element, id) => {
                                     return (
-                                        <>
-                                            <tr>
-                                                <th scope="row">{id + 1}</th>
-                                                <td>{element.ProductName}</td>
-                                                <td>{element.ProductPrice}</td>
-                                                <td>{element.ProductBarcode}</td>
+                                        <tr key={element._id}>
+                                            <th scope="row">{id + 1}</th>
+                                            <td>{element.ProductName}</td>
+                                            <td>{element.ProductPrice}</td>
+                                            <td>{element.ProductBarcode}</td>
 
-                                                <td><NavLink to={`/updateproduct/${element._id}`} className="btn btn-primary"><i className="fa-solid fa-pen-to-square"></i></NavLink></td>
-                                                <td><button className="btn btn-danger" onClick={() => deleteProduct(element._id)}><i class="fa-solid fa-trash"></i></button></td>
+                                            <td><NavLink to={`/updateproduct/${element._id}`} className="btn btn-primary"><i className="fa-solid fa-pen-to-square"></i></NavLink></td>
+                                            <td><button className="btn btn-danger" onClick={() => deleteProduct(element._id)}><i className="fa-solid fa-trash"></i></button></td>
 
-                                            </tr>
-                                        </>
+                                        </tr>
                                     )
                                 })
                             }
